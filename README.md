@@ -1,52 +1,63 @@
-Otonom Kargo Aracı
+🚚 Otonom Kargo Aracı
+Bu proje, düşük maliyetli donanım ve gelişmiş makine öğrenmesi algoritmalarını bir araya getirerek, belirli bir ortamda (kendi sokaklarında) otonom olarak hareket edebilen bir kargo aracı geliştirmeyi hedefler. Sistem, bir kamera aracılığıyla şerit ve engel tespiti yaparak güvenli ve akıllı bir şekilde yol alabilir.
 
-Bu proje, düşük maliyetli bir otonom kargo aracı geliştirmeyi hedefler. Araç, kendi sokaklarında şerit ve engel tespiti yaparak güvenli şekilde hareket edebilir.
+✨ Temel Özellikler
+Otonom Sürüş: Gelişmiş bir CNN modeli (UFLD veya benzeri) kullanarak şeritleri ve yol çizgilerini gerçek zamanlı olarak takip etme.
 
-Özellikler
+Dinamik Engel Algılama: Önündeki engelleri algılayıp, çarpmayı önlemek için otomatik olarak yön değiştirme.
 
-Otonom sürüş: Kamera ve makine öğrenmesi kullanarak yol takip ve yön tahmini
+Verimli Motor Kontrolü: Arduino Nano, L298M motor sürücüler ve 3 motor (2 arka, 1 ön) ile aracın hareketini hassas bir şekilde yönetme.
 
-Engel algılama: Önündeki engellere göre yön değiştirme
+Modüler Yazılım Mimarisi: Python ve PyCharm üzerinde geliştirilen kodun, donanım kontrolü ile ayrıştırılmış, düzenli bir yapıya sahip olması.
 
-Motor kontrolü: 3 motor (2 arkada, 1 önde) ve L298M motor sürücüler ile Arduino Nano üzerinden kontrol
+GIF Önerisi: Projenin küçük, döngüsel bir videosunu (örneğin, aracın bir şeridi takip etmesi veya bir engelden kaçması) çekerek buraya ekleyebilirsiniz. Bu, projenizin ne işe yaradığını anında gösterir.
 
-Geliştirme ortamı: Python ve PyCharm
+⚙️ Sistem Mimarisi
+Sistem, görevleri farklı katmanlara ayırarak daha anlaşılır ve yönetilebilir bir yapı sunar.
 
-Makine öğrenmesi modelleri:
+Görüntü İşleme Katmanı: Kamera ile alınan video akışı, şerit ve engel tespiti için Python tabanlı makine öğrenmesi modellerine gönderilir.
 
-Şerit tespiti: Ultra Fast Lane Detection (UFLD) veya benzeri
+Karar Katmanı: İşlenen veriler doğrultusunda, aracın ne yöne gitmesi gerektiği veya durması gerekip gerekmediği gibi kararlar alınır.
 
-Yön tahmini: CNN tabanlı regresyon modeli
+Donanım Kontrol Katmanı: Alınan kararlar, Arduino Nano'ya seri port üzerinden komut olarak gönderilir.
 
-Sistem Mimarisi
-[ Kamera ] --> [ Python ML Modeli (PyCharm) ] --> [ Uygulama / Komut İşleyici ] --> [ Arduino Nano ] --> [ Motorlar ]
+Fiziksel Hareket Katmanı: Arduino, gelen komutlara göre motor sürücülerini ve motorları kontrol ederek aracı hareket ettirir.
 
+Kod snippet'i
 
-Kamera ile alınan görüntü, Python tarafında işlenir.
+graph TD
+    A[Kamera Görüntüsü] --> B(Python İşleme ve ML Modeli);
+    B --> C{Karar Mantığı};
+    C --> D[Arduino Nano];
+    D --> E[Motor Sürücüleri & Motorlar];
+🛠️ Kurulum
+1. Donanım Bağlantısı
+Arduino Nano, 3 motor ve L298M motor sürücüleri arasındaki bağlantıları şemaya uygun şekilde yapın.
 
-Araç ve yol verileri analiz edilip karar alınır.
+2. Yazılım Kurulumu
+Python 3.x'in bilgisayarınızda yüklü olduğundan emin olun.
 
-Komutlar Arduino’ya gönderilir ve motorlar yönlendirilir.
+Proje deposunu klonlayın:
 
-Kurulum
+Bash
 
-Python 3.x yüklü olduğundan emin olun.
+git clone https://github.com/KULLANICIADINIZ/PROJEADINIZ.git
+cd PROJEADINIZ
+Gerekli tüm Python kütüphanelerini tek bir komutla yükleyin:
 
-Gerekli kütüphaneleri yükleyin:
+Bash
 
 pip install -r requirements.txt
+3. Model Ağırlıkları
+Makine öğrenmesi modeli için gerekli ağırlıkları models/ klasörüne indirin.
 
+▶️ Kullanım
+Projenin ana betiğini çalıştırmak için şu komutu kullanın:
 
-Arduino Nano'yu uygun şekilde motor sürücülerine bağlayın.
+Bash
 
-Kamera ile görüntü alabilmek için gerekli izinleri sağlayın.
+python main.py
+Bu komut, kamerayı başlatacak ve aracı otonom olarak hareket ettirecektir.
 
-Kullanım
-
-python main.py ile aracı çalıştırabilirsiniz.
-
-Model ağırlıkları ve konfigürasyon dosyaları models/ klasöründe bulunur.
-
-Araç, yol ve engel durumuna göre otomatik olarak hareket edecektir.
-
-Katkıda Bulunanlar
+🤝 Katkıda Bulunma
+Bu projeye katkılarınızı memnuniyetle bekliyoruz! Hata düzeltmeleri, yeni özellikler veya performans iyileştirmeleri için lütfen bir pull request gönderin veya bir issue açın.
