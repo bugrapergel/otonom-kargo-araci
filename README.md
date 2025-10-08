@@ -22,6 +22,7 @@ Sistem, görevleri farklı katmanlara ayırarak **anlaşılır ve yönetilebilir
 3. **Donanım Kontrol Katmanı**: Alınan kararlar, **Arduino Nano'ya seri port üzerinden** gönderilir.  
 4. **Fiziksel Hareket Katmanı**: Arduino, gelen komutlara göre **motor sürücülerini ve motorları** kontrol ederek aracı hareket ettirir.  
 
+
 ### Sistem Akış Diyagramı
 
 ```mermaid
