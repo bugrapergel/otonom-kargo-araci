@@ -29,7 +29,7 @@ graph TD
     A[Kamera Görüntüsü] --> B(Python İşleme ve ML Modeli)
     B --> C{Karar Mantığı}
     C --> D[Arduino Nano]
-    D --> E[Motor Sürücüleri & Motorlar]
+    D --> E[Motor Sürücüleri ve Motorlar]
 
 🛠️ Kurulum
 1️⃣ Donanım Bağlantısı
