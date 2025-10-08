@@ -31,27 +31,3 @@ graph TD
     B --> C{Karar Mantığı}
     C --> D[Arduino Nano]
     D --> E[Motor Sürücüleri ve Motorlar]
-
-🛠️ Kurulum
-1️⃣ Donanım Bağlantısı
-
-Arduino Nano, 3 motor ve L298M motor sürücüleri arasındaki bağlantıları şemaya uygun şekilde yapın.
-
-2️⃣ Yazılım Kurulumu
-
-Python 3.x yüklü olduğundan emin olun.
-
-Projeyi klonlayın:
-
-git clone https://github.com/KULLANICIADINIZ/otonomkargoaraci.git
-cd otonomkargoaraci
-
-3️⃣ Model Ağırlıkları
-
-Makine öğrenmesi modeli için gerekli ağırlıkları models/ klasörüne indirin.
-
-4️⃣ Aracı Başlatma
-python main.py
-
-
-Bu komut, kamerayı başlatır ve aracı otonom olarak hareket ettirir.
