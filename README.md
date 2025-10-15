@@ -30,7 +30,7 @@ graph TD
     A[Kamera Görüntüsü] --> B(Python İşleme ve ML Modeli)
     B --> C{Karar Mantığı}
     C --> D[Arduino Nano]
-    D --> E[Motor Sürücüleri ve Motorlar]
+    D --> E[Motor Sürücüleri ve Motor]
 
 
 ```
